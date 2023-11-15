@@ -3,7 +3,6 @@ import { configureAllureAdapterPlugins } from '@mmisty/cypress-allure-adapter/pl
 const fs = require('fs-extra');
 
 module.exports = defineConfig({
-  projectId: "afqxok",
   e2e: {
     specPattern: "cypress/e2e/*.feature",
     baseUrl: "https://opensource-demo.orangehrmlive.com",
@@ -12,15 +11,6 @@ module.exports = defineConfig({
       require('@cypress/grep/src/plugin')(config);
 
       // Create Task Reports directory before each run
-      const taskReportsDir = './TaskReports';
-      fs.ensureDirSync(taskReportsDir);
-      on('task', {
-        createTaskReportFolder: (taskName: string) => {
-          const taskReportFolder = `${taskReportsDir}/${taskName}`;
-          fs.ensureDirSync(taskReportFolder);
-          return null;
-        }
-      })
       return require("./cypress/plugins")(on, config);
     },
     env: {
