@@ -3,6 +3,7 @@ const addCucumberPreprocessorPlugin =
     require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
 const createEsBuildPlugin =
     require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
+
 module.exports = async (on, config) => {
     const bundler = createBundler({
         plugins: [createEsBuildPlugin(config)],

@@ -1,6 +1,5 @@
 const { defineConfig } = require("cypress");
 import { configureAllureAdapterPlugins } from '@mmisty/cypress-allure-adapter/plugins';
-const fs = require('fs-extra');
 
 module.exports = defineConfig({
   e2e: {
@@ -8,7 +7,7 @@ module.exports = defineConfig({
     baseUrl: "https://opensource-demo.orangehrmlive.com",
     async setupNodeEvents(on:any, config:any) {
       configureAllureAdapterPlugins(on, config);
-      require('@cypress/grep/src/plugin')(config);
+      
 
       // Create Task Reports directory before each run
       return require("./cypress/plugins")(on, config);
