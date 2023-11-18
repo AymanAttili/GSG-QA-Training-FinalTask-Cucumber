@@ -1,0 +1,33 @@
+{
+  "employee": {
+    "firstName": "3llawi",
+    "middleName": "7abibGalbi",
+    "lastName": "Manager"
+  },
+  "jobTitle": {
+    "title": "3llawi's Job Title",
+    "description": "",
+    "specification": null,
+    "note": ""
+  },
+  "vacancy": {
+    "name": "3llawi's Vacancy",
+    "numOfPositions": null,
+    "description": "",
+    "status": true,
+    "isPublished": true
+  },
+  "candidate": {
+    "firstName": "3llawi",
+    "middleName": "7abibGalbi",
+    "lastName": "Candidate",
+    "email": "3llawi@candidate.com",
+    "dateOfApplication": "2023-11-11",
+    "consentToKeepData": false
+  },
+  "interview": {
+    "interviewName": "3llawi's Interview",
+    "interviewDate": "2024-11-11",
+    "interviewerEmpNumbers": []
+  }
+}
