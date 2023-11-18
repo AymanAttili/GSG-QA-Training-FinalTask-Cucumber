@@ -87,8 +87,9 @@ Given("The candidate has a status of Hired", () => {
             cy.writeFile(fixturePath, data)
             
             addCandidatePage.shortlist(canId);
-            addCandidatePage.scheduleInterview(canId, interview)
-            addCandidatePage.passInterview(canId);
+            addCandidatePage.scheduleInterview(canId, interview).then((intId: number) => {
+                addCandidatePage.passInterview(canId, intId);
+            })
             addCandidatePage.offerJob(canId);
             addCandidatePage.hire(canId);
         });

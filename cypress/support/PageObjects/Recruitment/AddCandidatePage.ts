@@ -29,7 +29,7 @@ export default class AddCandidatePage{
     URLs = {
         shortlist: (id: number) => {return `/web/index.php/api/v2/recruitment/candidates/${id}/shortlist`},
         scheduleInterview: (id: number) => {return `/web/index.php/api/v2/recruitment/candidates/${id}/shedule-interview`},
-        passInterview: (id: number) => {return `/web/index.php/api/v2/recruitment/candidates/${id}/interviews/1/pass`},
+        passInterview: (canId: number, intId: number) => {return `/web/index.php/api/v2/recruitment/candidates/${canId}/interviews/${intId}/pass`},
         offerJob: (id: number) => {return `/web/index.php/api/v2/recruitment/candidates/${id}/job/offer`},
         hire: (id: number) => {return `/web/index.php/api/v2/recruitment/candidates/${id}/hire`}
     }
@@ -47,13 +47,13 @@ export default class AddCandidatePage{
             method: "POST",
             url: this.URLs.scheduleInterview(id),
             body: interviewData
-        })
+        }).its('body').its('data').its('id');
     }
 
-    passInterview = (id: number) => {
+    passInterview = (canId: number, intId: number) => {
         return cy.request({
             method: 'PUT',
-            url: this.URLs.passInterview(id),
+            url: this.URLs.passInterview(canId, intId),
             body: {}
         })
     }
